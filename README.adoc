@@ -1,0 +1,51 @@
+KitchenSink Application
+This is a Spring Boot application that demonstrates basic CRUD operations with MongoDB and Thymeleaf for the view layer.
+
+Prerequisites
+Before you begin, ensure you have the following installed on your machine:
+Java Development Kit (JDK) 11 or higher
+Apache Maven
+MongoDB
+
+Getting Started
+Clone the Repository
+git clone https://github.com/yourusername/kitchensink.git
+cd kitchensink
+
+Configure MongoDB
+Ensure MongoDB is running on your local machine.
+The application expects MongoDB to be available at mongodb://localhost:27017/yourdatabase.
+You can change this configuration in the application.properties file.
+
+Build the Application
+Use Maven to build the application:
+mvn clean install
+
+Run the Application
+You can run the application using the following command:
+mvn spring-boot:run
+
+Alternatively, you can run the generated JAR file:
+java -jar target/kitchensink-0.0.1-SNAPSHOT.jar
+
+Access the Application
+Open a web browser and navigate to http://localhost:8080.
+http://localhost:8080/ui/members
+You should see the application's home page with a list of members.
+You can add, edit, and delete members using the provided links.
+
+Project Structure
+src/main/java/com/example/kitchensink - Contains the main application code.
+src/main/resources/templates - Contains Thymeleaf templates.
+src/test/java/com/example/kitchensink - Contains test cases.
+
+Running Tests
+To run the tests, use the following command:
+mvn test
+
+Security Features
+The application includes basic security configurations using Spring Security.
+You can find the security configuration in the SecurityConfig.java file.
+
+
+
