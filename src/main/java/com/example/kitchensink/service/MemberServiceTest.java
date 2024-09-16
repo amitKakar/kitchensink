@@ -25,8 +25,8 @@ public class MemberServiceTest {
 
     @Test
     public void testGetAllMembers() {
-        Member member1 = new Member("1", "John Doe","john@gmail.com");
-        Member member2 = new Member("2", "Jane Doe","jane@gmail.com");
+        Member member1 = new Member("1", "John Doe","john@gmail.com","9876543210");
+        Member member2 = new Member("2", "Jane Doe","jane@gmail.com","9876543211");
 
         when(memberRepository.findAll()).thenReturn(Arrays.asList(member1, member2));
 

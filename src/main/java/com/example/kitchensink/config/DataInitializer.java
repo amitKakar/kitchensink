@@ -28,8 +28,9 @@ public class DataInitializer {
         return args -> {
             if (memberRepository.count() == 0) {
                 Member member = new Member();
-                member.setId("1");
+                member.setId("66df3483f2aaaa7972db0a4e");
                 member.setName("John Doe");
+                member.setPhoneNumber("9754870090");
                 member.setEmail("john.doe@example.com");
                 memberRepository.save(member);
             }

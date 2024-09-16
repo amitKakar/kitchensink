@@ -1,161 +1,99 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Management System - Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Home</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f0f0f0;
             color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px 0;
             text-align: center;
-            border-bottom: 4px solid #0056b3;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav {
-            background: #0056b3;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            background: #007bff;
-            border-radius: 5px;
-            margin: 0 10px;
-            transition: background 0.3s ease;
-        }
-        nav a:hover {
-            background: #003d7a;
+            padding: 20px;
         }
         .container {
-            flex: 1;
-            width: 80%;
-            max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
+            border: 1px solid #ccc;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            max-width: 600px;
         }
-        .welcome {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .welcome h2 {
+        h1 {
             color: #007bff;
-            margin-bottom: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         .content {
-            padding: 20px;
-            border-radius: 8px;
-            background: #f9f9f9;
+            margin-top: 20px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        form label {
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        form input {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            width: 100%;
-            max-width: 400px;
-            font-size: 1em;
-        }
-        form button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #007bff;
-            color: #fff;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        form button:hover {
-            background: #0056b3;
-        }
-        .icon-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .icon-section a {
-            text-decoration: none;
-            color: #333;
-            text-align: center;
-        }
-        .icon-section i {
-            font-size: 3em;
-            color: #007bff;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-        .icon-section a:hover i {
-            color: #0056b3;
-        }
-        .icon-section span {
+        label {
             display: block;
-            font-size: 1.2em;
-            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-<header>
-    <h1>Member Management System</h1>
-</header>
-<nav>
-    <a th:href="@{/ui/register}">Register Member</a>
-    <a th:href="@{/ui/members}">List Members</a>
-</nav>
-<div class="container">
-    <div class="welcome">
-        <h2>Search Member by ID</h2>
+    <h1>Welcome to the Member Management System</h1>
+    <div class="container">
+        <a href="/ui/members">View Members</a>
     </div>
-    <div class="content">
-        <form th:action="@{/ui/member}" method="get">
-            <label for="id">Member ID:</label>
-            <input type="text" id="id" name="id" required>
+    <div class="container">
+        <a href="/ui/member/register">Register Member</a>
+    </div>
+    <div class="container content">
+        <h2>Search Member by ID</h2>
+        <form th:action="@{/ui/memberId}" method="get">
+            <label for="searchId">Member ID:</label>
+            <input type="text" id="searchId" name="id" required>
             <button type="submit">Search</button>
         </form>
     </div>
-    <div class="icon-section">
-        <a th:href="@{/ui/register}">
-            <i class="fas fa-user-plus"></i>
-            <span>Register Member</span>
-        </a>
-        <a th:href="@{/ui/members}">
-            <i class="fas fa-list"></i>
-            <span>List Members</span>
-        </a>
+    <div class="container content">
+        <h2>Update Member by ID</h2>
+        <form th:action="@{/ui/member/update}" method="get">
+            <label for="updateId">Member ID:</label>
+            <input type="text" id="updateId" name="id" required>
+            <button type="submit">Update</button>
+        </form>
     </div>
-</div>
+    <div class="container content">
+        <h2>Delete Member by ID</h2>
+        <form th:action="@{/ui/member/delete}" method="post">
+            <label for="deleteId">Member ID:</label>
+            <input type="text" id="deleteId" name="id" required>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+
+    <div class="Sign Out">
+        <h2>Logout user</h2>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Sign Out</button>
+        </form>
+    </div>
 </body>
 </html>
